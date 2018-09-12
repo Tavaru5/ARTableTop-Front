@@ -9,3 +9,6 @@
   - [Make sure your device is set up for debugging](https://developer.android.com/studio/run/device#setting-up)
     - \-OR\-
   - Run on an emulator
+
+## Branches
+I am currently setting this up as `master` being essentially the "release" branch. It should always compile, and we shouldn't merge there often. `dev` will be the core branch for us to branch off of and merge back into. Right now I'm not requiring reviews for merges into `dev`, but hopefully in the future we could get into that habit.
