@@ -9,6 +9,8 @@ import {
   ViroAnimations,
 } from 'react-viro';
 
+import Board from './components/Board';
+
 export default class Game extends Component {
   constructor() {
     super();
@@ -42,7 +44,7 @@ export default class Game extends Component {
     return (
       <ViroARScene onTrackingUpdated={this.onInitialized}>
         <ViroNode position={[0, 0, -0.5]} dragType="FixedToWorld" onDrag={() => {}}>
-          {buffer}
+          <Board width={8} height={8} />
         </ViroNode>
       </ViroARScene>
     );
