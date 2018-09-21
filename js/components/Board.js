@@ -20,8 +20,8 @@ function Board(props: Props) {
           props.height / 40 - 0.05 * (i % props.height),
         ]}
         height={0.01}
-        length={0.05}
-        width={0.05}
+        length={0.045}
+        width={0.045}
         materials={(Math.floor(i / 8) % 2 ? (i + 1) % 2 : i % 2) ? ['black'] : ['white']}
       />,
     );

@@ -28,19 +28,6 @@ export default class Game extends Component {
   }
 
   render() {
-    const buffer = [];
-    let i;
-    for (i = 0; i < 64; i++) {
-      buffer.push(
-        <ViroBox
-          position={[0.2 - 0.05 * Math.floor(i / 8), 0, 0.2 - 0.05 * (i % 8)]}
-          height={0.01}
-          length={0.05}
-          width={0.05}
-          materials={(Math.floor(i / 8) % 2 ? (i + 1) % 2 : i % 2) ? ['black'] : ['white']}
-        />,
-      );
-    }
     return (
       <ViroARScene onTrackingUpdated={this.onInitialized}>
         <ViroNode position={[0, 0, -0.5]} dragType="FixedToWorld" onDrag={() => {}}>
@@ -51,17 +38,6 @@ export default class Game extends Component {
   }
 }
 
-ViroMaterials.createMaterials({
-  black: {
-    diffuseColor: 'black',
-  },
-  white: {
-    diffuseColor: 'white',
-  },
-  brown: {
-    diffuseColor: 'brown',
-  },
-});
 ViroAnimations.registerAnimations({
   rotate: {
     properties: {
