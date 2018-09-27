@@ -6,22 +6,32 @@ import { ViroBox, ViroMaterials } from 'react-viro';
 type Props = {
   width: number,
   height: number,
+  squareSize: number,
 };
 
 function Board(props: Props) {
   const buffer = [];
+  // Space between a tile and the tile next to it, in percentage of tile
+  const emptinessScale = 0.1;
+  // Height scale, based on size
+  const heightScale = 0.2;
+  // Default size
+  let size = 0.05;
+  if (props.squareSize != null) {
+    size = props.squareSize;
+  }
   let i;
   for (i = 0; i < props.width * props.height; i++) {
     buffer.push(
       <ViroBox
         position={[
-          props.width / 40 - 0.05 * Math.floor(i / props.width),
+          props.width / (2 / size) - size * Math.floor(i / props.width),
           0,
-          props.height / 40 - 0.05 * (i % props.height),
+          props.height / (2 / size) - size * (i % props.height),
         ]}
-        height={0.01}
-        length={0.045}
-        width={0.045}
+        height={heightScale * size}
+        length={size * (1 - emptinessScale)}
+        width={size * (1 - emptinessScale)}
         materials={(Math.floor(i / 8) % 2 ? (i + 1) % 2 : i % 2) ? ['black'] : ['white']}
       />,
     );
