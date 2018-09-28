@@ -11,7 +11,7 @@
   - Run on an emulator
 
 ## Branches
-`master` is essentially the "release" branch. It should always compile, and we shouldn't merge there often. 
+`master` is essentially the "release" branch. It should always compile, and we shouldn't merge there often.\
 `dev` is the core branch for us to branch off of and merge back into.
 Aside from time constrained items, merges into `dev` should have at least one reviewer.
 
