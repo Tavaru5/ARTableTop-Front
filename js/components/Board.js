@@ -9,12 +9,8 @@ type Props = {
   squareSize: number,
 };
 
-function colorForTile(tileNum: number, height: number) {
-  let tileNumUsed = tileNum;
-  if (Math.floor(tileNum / height) % 2) {
-    tileNumUsed += 1;
-  }
-  if (tileNumUsed % 2) {
+function colorForTile(x: number, y: number) {
+  if (x % 2 === y % 2) {
     return 'black';
   }
   return 'white';
@@ -33,17 +29,15 @@ function Board(props: Props) {
   }
   let i;
   for (i = 0; i < props.width * props.height; i++) {
+    const x = Math.floor(i / props.width);
+    const y = i % props.height;
     buffer.push(
       <ViroBox
-        position={[
-          props.width / (2 / size) - size * Math.floor(i / props.width),
-          0,
-          props.height / (2 / size) - size * (i % props.height),
-        ]}
+        position={[props.width / (2 / size) - size * x, 0, props.height / (2 / size) - size * y]}
         height={heightScale * size}
         length={size * (1 - emptinessScale)}
         width={size * (1 - emptinessScale)}
-        materials={colorForTile(i, props.width)}
+        materials={colorForTile(x, y)}
       />,
     );
   }
