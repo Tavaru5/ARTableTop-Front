@@ -57,3 +57,6 @@ buck-out/
 
 # Keys
 *.keys.js
+
+# IDE settings
+.vscode
