@@ -9,6 +9,17 @@ type Props = {
   squareSize: number,
 };
 
+function colorForTile(tileNum: number, height: number) {
+  let tileNumUsed = tileNum;
+  if (Math.floor(tileNum / height) % 2) {
+    tileNumUsed += 1;
+  }
+  if (tileNumUsed % 2) {
+    return 'black';
+  }
+  return 'white';
+}
+
 function Board(props: Props) {
   const buffer = [];
   // Space between a tile and the tile next to it, in percentage of tile
@@ -32,7 +43,7 @@ function Board(props: Props) {
         height={heightScale * size}
         length={size * (1 - emptinessScale)}
         width={size * (1 - emptinessScale)}
-        materials={(Math.floor(i / 8) % 2 ? (i + 1) % 2 : i % 2) ? ['black'] : ['white']}
+        materials={colorForTile(i, props.width)}
       />,
     );
   }
