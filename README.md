@@ -11,4 +11,13 @@
   - Run on an emulator
 
 ## Branches
-I am currently setting this up as `master` being essentially the "release" branch. It should always compile, and we shouldn't merge there often. `dev` will be the core branch for us to branch off of and merge back into. Right now I'm not requiring reviews for merges into `dev`, but hopefully in the future we could get into that habit.
+`master` is essentially the "release" branch. It should always compile, and we shouldn't merge there often. 
+`dev` is the core branch for us to branch off of and merge back into.
+Aside from time constrained items, merges into `dev` should have at least one reviewer.
+
+## Project
+The GitHub project board is set up to track issues and PRs. There are currently four columns:
+- To Do: Issues that need to be done, but are not currently being worked on go here. They may be issues that have previously had work done in them, but there is none currently.
+- In Progress: Issues actively in development. Not necessarily at this moment, but more of a general "I'm working on this somewhat frequently."
+- Needs Review: Issues that are in PRs waiting for code review.
+- Done: Issues that have been completed and meet a definition of done.
