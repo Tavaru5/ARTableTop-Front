@@ -31,7 +31,7 @@ export default class Game extends Component {
     return (
       <ViroARScene onTrackingUpdated={this.onInitialized}>
         <ViroNode position={[0, 0, -0.5]} dragType="FixedToWorld" onDrag={() => {}}>
-          <Board width={8} height={8} />
+          <Board width={2} height={4} />
         </ViroNode>
       </ViroARScene>
     );

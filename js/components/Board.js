@@ -1,6 +1,5 @@
 // @flow
 import React from 'react';
-
 import { ViroBox, ViroMaterials } from 'react-viro';
 
 type Props = {
@@ -29,11 +28,14 @@ function Board(props: Props) {
   }
   let i;
   for (i = 0; i < props.width * props.height; i++) {
-    const x = Math.floor(i / props.width);
-    const y = i % props.height;
+    const y = Math.floor(i / props.width);
+    const x = i % props.width;
+    console.log(
+      `x:${x.toString()} y:${y.toString()} height:${props.height.toString()} width:${props.width.toString()}`,
+    );
     buffer.push(
       <ViroBox
-        position={[props.width / (2 / size) - size * x, 0, props.height / (2 / size) - size * y]}
+        position={[size * x, 0, size * y]}
         height={heightScale * size}
         length={size * (1 - emptinessScale)}
         width={size * (1 - emptinessScale)}
