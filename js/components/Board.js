@@ -35,7 +35,7 @@ function Board(props: Props) {
     );
     buffer.push(
       <ViroBox
-        position={[size * x, 0, size * y]}
+        position={[size * x - (props.width * size) / 2, 0, size * y - (props.height * size) / 2]}
         height={heightScale * size}
         length={size * (1 - emptinessScale)}
         width={size * (1 - emptinessScale)}
