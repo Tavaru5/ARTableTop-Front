@@ -22,43 +22,44 @@ export default class Game extends Component {
     }
   }
 
+  // These functions will eventually not return constants, but for now they do.
+
+  getHeight() {
+    return 7;
+  }
+
+  getWidth() {
+    return 7;
+  }
+
+  getWalls() {
+    return [
+      [1, 1, 1, 2],
+      [2, 1, 2, 2],
+      [3, 1, 3, 2],
+      [4, 1, 4, 2],
+      [0, 2, 1, 2],
+      [0, 3, 1, 3],
+      [0, 4, 1, 4],
+      [4, 2, 5, 2],
+      [4, 3, 5, 3],
+      [4, 4, 5, 4],
+      [1, 4, 1, 5],
+      [2, 4, 2, 5],
+      [3, 4, 3, 5],
+      [4, 4, 4, 5],
+    ];
+  }
+
   render() {
     return (
       <ViroARScene onTrackingUpdated={this.onInitialized}>
         <ViroNode position={[0, 0, -0.5]} dragType="FixedToWorld" onDrag={() => {}}>
-          <Board
-            width={7}
-            height={7}
-            walls={[
-              [1, 1, 1, 2],
-              [2, 1, 2, 2],
-              [3, 1, 3, 2],
-              [4, 1, 4, 2],
-              [0, 2, 1, 2],
-              [0, 3, 1, 3],
-              [0, 4, 1, 4],
-              [4, 2, 5, 2],
-              [4, 3, 5, 3],
-              [4, 4, 5, 4],
-              [1, 4, 1, 5],
-              [2, 4, 2, 5],
-              [3, 4, 3, 5],
-              [4, 4, 4, 5],
-            ]}
-          />
+          <Board width={this.getWidth()} height={this.getHeight()} walls={this.getWalls()} />
         </ViroNode>
       </ViroARScene>
     );
   }
 }
-
-ViroAnimations.registerAnimations({
-  rotate: {
-    properties: {
-      rotateY: '+=90',
-    },
-    duration: 250, // .25 seconds
-  },
-});
 
 module.exports = Game;
